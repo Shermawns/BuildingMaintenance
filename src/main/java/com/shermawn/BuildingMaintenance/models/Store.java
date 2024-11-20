@@ -6,6 +6,9 @@ import lombok.*;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -30,5 +33,8 @@ public class Store {
 
     @Column(name = "created_date")
     private LocalDate createdDate;
+
+    @OneToMany(mappedBy = "store")
+    private List<Ticket> tickets = new ArrayList<>();
 
 }

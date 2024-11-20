@@ -3,6 +3,9 @@ package com.shermawn.BuildingMaintenance.models;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -25,4 +28,6 @@ public class Trilogger {
     @Column(name = "created_date")
     private LocalDate createdDate;
 
+    @OneToMany(mappedBy = "trilogger")
+    private List<Ticket> tickets = new ArrayList<>();
 }

@@ -1,6 +1,5 @@
 package com.shermawn.BuildingMaintenance.models;
 
-import com.shermawn.BuildingMaintenance.models.PK.TicketPK;
 import com.shermawn.BuildingMaintenance.models.enums.RolePriority;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,13 +9,23 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(of = "ticket")
+@EqualsAndHashCode(of = "ticketId")
 @Entity
 @Table(name = "tb_ticket")
 public class Ticket {
 
-    @EmbeddedId
-    private TicketPK ticket = new TicketPK();
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ticket_id")
+    private Long ticketId;
+
+    @ManyToOne
+    @JoinColumn(name = "store_id")
+    private Store store;
+
+    @ManyToOne
+    @JoinColumn(name = "trilogger_id")
+    private Trilogger trilogger;
 
     @ManyToOne
     @JoinColumn(name = "provider_id")
@@ -29,7 +38,7 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private RolePriority priority = RolePriority.LOW;
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private LocalDate createdDate = LocalDate.now();
     private LocalDate deadline;
 
 }
