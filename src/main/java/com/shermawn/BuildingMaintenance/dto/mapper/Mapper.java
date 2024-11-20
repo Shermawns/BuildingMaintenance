@@ -9,6 +9,7 @@ import com.shermawn.BuildingMaintenance.models.Ticket;
 import com.shermawn.BuildingMaintenance.repositories.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +37,7 @@ public class Mapper {
         return responseTicketDTO;
     }
 
+
     public static Store toRequestStoreDTO(RequestStoreDTO requestStoreDTO){
         Store store = new Store();
         store.setUsername(requestStoreDTO.getUsername());
@@ -49,7 +51,7 @@ public class Mapper {
         List<ResponseStoreDTO> x = new ArrayList<>();
 
         for (Store y : stores){
-            ResponseStoreDTO responseStoreDTO = new ResponseStoreDTO(y.getUsername(), y.getCnpj());
+            ResponseStoreDTO responseStoreDTO = new ResponseStoreDTO(y.getUsername(), y.getCnpj(), LocalDate.now());
             x.add(responseStoreDTO);
         }
         return x;

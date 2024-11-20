@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class RequestTicketDTO {
     @NotNull
-    private String storeName;
+    private Long storeId;
 
     @NotNull
     private String title;

@@ -33,7 +33,8 @@ public class TicketService {
     }
 
     public Ticket create(RequestTicketDTO requestTicketDTO) {
-        Store store = storeRepository.findByUsername(requestTicketDTO.getStoreName());
+        Store store = storeRepository.findById(requestTicketDTO.getStoreId())
+                .orElseThrow(() -> new RuntimeException("Store not found with ID: " + requestTicketDTO.getStoreId()));
 
         Ticket ticket = new Ticket();
         ticket.setStore(store);

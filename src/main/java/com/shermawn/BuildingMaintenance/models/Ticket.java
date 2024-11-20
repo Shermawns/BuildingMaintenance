@@ -1,5 +1,6 @@
 package com.shermawn.BuildingMaintenance.models;
 
+import com.shermawn.BuildingMaintenance.dto.stores.ResponseStoreDTO;
 import com.shermawn.BuildingMaintenance.models.enums.RolePriority;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,7 +25,7 @@ public class Ticket {
     private Store store;
 
     @ManyToOne
-    @JoinColumn(name = "trilogger_id", nullable = true)
+    @JoinColumn(name = "trilogger_id")
     private Trilogger trilogger;
 
     @ManyToOne

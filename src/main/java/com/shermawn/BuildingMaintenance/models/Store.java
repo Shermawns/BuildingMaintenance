@@ -1,5 +1,7 @@
 package com.shermawn.BuildingMaintenance.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,15 +26,18 @@ public class Store {
     private String username;
 
     @Column(unique = false, nullable = false, length = 200)
+    @JsonIgnore
     private String password;
 
     @Column(unique = true, nullable = false, length = 100)
     private String cnpj;
 
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    @JsonIgnore
+    private LocalDate createdDate = LocalDate.now();
 
     @OneToMany(mappedBy = "store")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private List<Ticket> tickets = new ArrayList<>();
 
 }
