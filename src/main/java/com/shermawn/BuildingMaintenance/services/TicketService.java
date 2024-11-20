@@ -4,6 +4,7 @@ import com.shermawn.BuildingMaintenance.dto.tickets.RequestTicketDTO;
 import com.shermawn.BuildingMaintenance.models.Store;
 import com.shermawn.BuildingMaintenance.models.Ticket;
 import com.shermawn.BuildingMaintenance.models.Trilogger;
+import com.shermawn.BuildingMaintenance.models.enums.RolePriority;
 import com.shermawn.BuildingMaintenance.repositories.StoreRepository;
 import com.shermawn.BuildingMaintenance.repositories.TicketRepository;
 import com.shermawn.BuildingMaintenance.repositories.TriloggerRepository;
@@ -31,15 +32,20 @@ public class TicketService {
         return repository.findByUsername(username);
     }
 
-    public Ticket create(RequestTicketDTO requestTicketDTO){
-        RequestTicketDTO dto = new RequestTicketDTO();
-        Store store = storeRepository.findById(dto.getStoreId()).orElseThrow(() -> new RuntimeException("Store not found with ID: " + dto.getStoreId()));
+    public Ticket create(RequestTicketDTO requestTicketDTO) {
+        Store store = storeRepository.findByUsername(requestTicketDTO.getStoreName());
 
         Ticket ticket = new Ticket();
         ticket.setStore(store);
-        ticket.setTitle(dto.getTitle());
-        ticket.setDescription(dto.getDescription());
+        ticket.setTitle(requestTicketDTO.getTitle());
+        ticket.setDescription(requestTicketDTO.getDescription());
+
+        ticket.setPriority(RolePriority.LOW);
+        ticket.setDeadline(null);
+        ticket.setTrilogger(null);
+        ticket.setProvider(null);
 
         return repository.save(ticket);
     }
+
 }

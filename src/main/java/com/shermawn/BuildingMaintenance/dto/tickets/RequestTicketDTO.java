@@ -1,25 +1,16 @@
 package com.shermawn.BuildingMaintenance.dto.tickets;
 
-import com.shermawn.BuildingMaintenance.models.Store;
-import com.shermawn.BuildingMaintenance.models.Ticket;
-import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class RequestTicketDTO {
-    private Long storeId;
-    private String title;
-    private String description;
+    @NotNull
+    private String storeName;
 
-    public RequestTicketDTO(Ticket ticket) {
-        storeId = ticket.getStore().getId();
-        title = ticket.getTitle();
-        description = ticket.getDescription();
-    }
+    @NotNull
+    private String title;
+
+    @NotNull
+    private String description;
 }

@@ -42,7 +42,14 @@ public class TicketController {
         return ResponseEntity.ok().body(Mapper.toTicketDTO(tickets));
     }
 
-    
-
+    @PostMapping
+    public ResponseEntity<ResponseTicketDTO> createTicket(@Valid @RequestBody RequestTicketDTO requestTicketDTO) {
+        Ticket ticket = ticketService.create(requestTicketDTO);
+        ResponseTicketDTO response = new ResponseTicketDTO(ticket);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
 
 }
+
+
+

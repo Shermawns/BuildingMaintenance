@@ -24,7 +24,7 @@ public class Ticket {
     private Store store;
 
     @ManyToOne
-    @JoinColumn(name = "trilogger_id")
+    @JoinColumn(name = "trilogger_id", nullable = true)
     private Trilogger trilogger;
 
     @ManyToOne
