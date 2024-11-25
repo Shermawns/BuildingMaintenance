@@ -1,15 +1,13 @@
 package com.shermawn.BuildingMaintenance.dto.mapper;
-
 import com.shermawn.BuildingMaintenance.dto.stores.RequestStoreDTO;
 import com.shermawn.BuildingMaintenance.dto.stores.ResponseStoreDTO;
-import com.shermawn.BuildingMaintenance.dto.tickets.RequestTicketDTO;
 import com.shermawn.BuildingMaintenance.dto.tickets.ResponseTicketDTO;
+import com.shermawn.BuildingMaintenance.dto.triloggers.RequestTriloggerDTO;
+import com.shermawn.BuildingMaintenance.dto.triloggers.ResponseTriloggerDTO;
 import com.shermawn.BuildingMaintenance.models.Store;
 import com.shermawn.BuildingMaintenance.models.Ticket;
-import com.shermawn.BuildingMaintenance.repositories.StoreRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.shermawn.BuildingMaintenance.models.Trilogger;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +27,6 @@ public class Mapper {
 
     public static ResponseTicketDTO toResponseTicketDto(Ticket ticket){
         ResponseTicketDTO responseTicketDTO = new ResponseTicketDTO();
-
         responseTicketDTO.setStore(ticket.getStore());
         responseTicketDTO.setTitle(ticket.getTitle());
         responseTicketDTO.setDescription(ticket.getDescription());
@@ -51,7 +48,7 @@ public class Mapper {
         List<ResponseStoreDTO> x = new ArrayList<>();
 
         for (Store y : stores){
-            ResponseStoreDTO responseStoreDTO = new ResponseStoreDTO(y.getUsername(), y.getCnpj(), LocalDate.now());
+            ResponseStoreDTO responseStoreDTO = new ResponseStoreDTO(y.getUsername(), y.getCnpj(), y.getCreatedDate());
             x.add(responseStoreDTO);
         }
         return x;
@@ -66,5 +63,20 @@ public class Mapper {
         return responseStoreDTO;
     }
 
+    public static Trilogger toTriDTO(RequestTriloggerDTO trilogger1) {
+        Trilogger trilogger = new Trilogger();
+        trilogger.setUsername(trilogger1.getUsername());
+        trilogger.setPassword(trilogger1.getPassword());
+
+        return trilogger;
+    }
+
+    public static ResponseTriloggerDTO toResponseTriDTO (Trilogger requestTriloggerDTO){
+        ResponseTriloggerDTO responseTriloggerDTO = new ResponseTriloggerDTO();
+
+        responseTriloggerDTO.setUsername(requestTriloggerDTO.getUsername());
+
+        return responseTriloggerDTO;
+    }
 }
 

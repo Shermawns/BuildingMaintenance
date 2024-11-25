@@ -29,7 +29,7 @@ public class Provider {
     private String cnpj;
 
     @Column(name = "created_date")
-    private LocalDate createdDate;
+    private LocalDate createdDate = LocalDate.now();
 
     @OneToMany(mappedBy = "provider")
     private List<Ticket> tickets = new ArrayList<>();

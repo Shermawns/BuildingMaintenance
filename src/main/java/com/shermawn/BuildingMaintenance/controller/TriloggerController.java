@@ -1,8 +1,7 @@
 package com.shermawn.BuildingMaintenance.controller;
-
 import com.shermawn.BuildingMaintenance.dto.mapper.Mapper;
-import com.shermawn.BuildingMaintenance.dto.tickets.ResponseTicketDTO;
-import com.shermawn.BuildingMaintenance.models.Ticket;
+import com.shermawn.BuildingMaintenance.dto.triloggers.RequestTriloggerDTO;
+import com.shermawn.BuildingMaintenance.dto.triloggers.ResponseTriloggerDTO;
 import com.shermawn.BuildingMaintenance.models.Trilogger;
 import com.shermawn.BuildingMaintenance.services.TriloggerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,10 +18,16 @@ public class TriloggerController {
     private TriloggerService triloggerService;
 
 
-    @PostMapping
-    public ResponseEntity<Trilogger> create(@RequestBody Trilogger trilogger){
-        Trilogger trilogger1 = triloggerService.create(trilogger);
-        return ResponseEntity.ok().body(trilogger1);
+    @PostMapping(value = "/create")
+    public ResponseEntity<ResponseTriloggerDTO> create(@RequestBody RequestTriloggerDTO requestTriDTO){
+        Trilogger trilogger = Mapper.toTriDTO(requestTriDTO);
+
+        Trilogger result = triloggerService.create(trilogger);
+
+        ResponseTriloggerDTO responseTriloggerDTO = Mapper.toResponseTriDTO(result);
+
+        return ResponseEntity.ok().body(responseTriloggerDTO);
+
     }
 
     @GetMapping

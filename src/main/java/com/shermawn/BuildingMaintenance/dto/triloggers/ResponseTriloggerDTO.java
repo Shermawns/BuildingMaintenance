@@ -1,10 +1,11 @@
 package com.shermawn.BuildingMaintenance.dto.triloggers;
-
-import com.shermawn.BuildingMaintenance.models.Store;
 import com.shermawn.BuildingMaintenance.models.Trilogger;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Getter
+@Data
+@NoArgsConstructor
 public class ResponseTriloggerDTO {
     private String username;
 

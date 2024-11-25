@@ -1,13 +1,8 @@
 package com.shermawn.BuildingMaintenance.services;
-
-import com.shermawn.BuildingMaintenance.dto.mapper.Mapper;
-import com.shermawn.BuildingMaintenance.dto.stores.ResponseStoreDTO;
 import com.shermawn.BuildingMaintenance.models.Store;
-import com.shermawn.BuildingMaintenance.models.Ticket;
 import com.shermawn.BuildingMaintenance.repositories.StoreRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service

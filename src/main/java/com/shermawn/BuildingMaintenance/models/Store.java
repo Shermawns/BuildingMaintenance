@@ -33,7 +33,6 @@ public class Store {
     private String cnpj;
 
     @Column(name = "created_date")
-    @JsonIgnore
     private LocalDate createdDate = LocalDate.now();
 
     @OneToMany(mappedBy = "store")

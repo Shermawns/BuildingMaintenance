@@ -19,10 +19,10 @@ public class Trilogger {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, length = 50)
+    @Column(nullable = false, unique = true, length = 50)
     private String username;
 
-    @Column(unique = false,  length = 200)
+    @Column(nullable = false, unique = false,  length = 200)
     private String password;
 
     @Column(name = "created_date")

@@ -34,12 +34,16 @@ public class Ticket {
 
     @Column(nullable = false, length = 100)
     private String title;
+
     @Column(nullable = false, length = 200)
     private String description;
+
     @Enumerated(EnumType.STRING)
     private RolePriority priority = RolePriority.LOW;
+
     @Column(name = "created_date")
     private LocalDate createdDate = LocalDate.now();
+
     private LocalDate deadline;
 
 }
