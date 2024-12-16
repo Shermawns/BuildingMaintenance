@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Size;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @NoArgsConstructor
 public class RequestTriloggerDTO {
@@ -16,4 +18,7 @@ public class RequestTriloggerDTO {
 
     @NotBlank
     private String password;
+
+    private LocalDate createdDate;
+
 }

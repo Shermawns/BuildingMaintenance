@@ -9,4 +9,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TriloggerRepository extends JpaRepository<Trilogger, Long> {
+    Optional<Trilogger> findByUsername(String username);
 }

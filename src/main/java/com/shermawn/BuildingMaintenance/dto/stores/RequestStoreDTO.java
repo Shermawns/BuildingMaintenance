@@ -4,6 +4,10 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDate;
+
 @Data
 public class RequestStoreDTO {
 
@@ -17,5 +21,7 @@ public class RequestStoreDTO {
     @NotNull
     @Size(min = 14)
     private String cnpj;
+
+    private LocalDate createdDate;
 
 }

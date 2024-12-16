@@ -20,8 +20,11 @@ public class TriloggerService {
     }
 
     public Trilogger create(Trilogger trilogger){
-        trilogger.setCreatedDate(LocalDate.now());
         return triloggerRepository.save(trilogger);
+    }
+
+    public void delete(Long id){
+        triloggerRepository.deleteById(id);
     }
 
 }

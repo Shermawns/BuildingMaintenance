@@ -1,0 +1,77 @@
+[33mcommit 9dab7188ac867c1571f8be0964e15ecaba12680b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 27 09:37:57 2024 -0300
+
+    Implementing new informations: BuildingType and TicketStatus.
+
+[33mcommit 198fdc7e8716a5240337a52af3f6096def856eb8[m
+Author: sherm <shermawns@gmail.com>
+Date:   Tue Nov 26 10:53:17 2024 -0300
+
+    Implementing ticket editing by trilogger and provider creation.
+
+[33mcommit c2f36448d1153aefba3e8ffbeb4a5064bd1e7415[m
+Author: sherm <shermawns@gmail.com>
+Date:   Mon Nov 25 14:55:50 2024 -0300
+
+    Implementing Trilogger services in the controller
+
+[33mcommit ff52ead25ff70200faf8846cd428ea87d9397654[m
+Author: sherm <shermawns@gmail.com>
+Date:   Mon Nov 25 14:55:02 2024 -0300
+
+    Implementing Trilogger services in the controller
+
+[33mcommit cc0e74f2c98d4d223d2c7659bdb537322d12dafa[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 20 16:34:22 2024 -0300
+
+    Bug corrections
+
+[33mcommit 5d58412d3e01a56f06dbd0864d50bab94e63f68a[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 20 15:31:40 2024 -0300
+
+    Changes
+
+[33mcommit 860a3fafc6a22c0acc41c9fab70559d9d466c364[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 20 10:43:03 2024 -0300
+
+    Controller/Services and Mapper: Store/Ticket/Trilogger
+
+[33mcommit dfcb8c9e063938b274660b9b5c0da9d3f1500e5a[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 20 10:42:06 2024 -0300
+
+    Changes: Store/Triloggers/Tickets
+
+[33mcommit 785f85f71dbf65e2ac3a8813b00e279ed5c27fc7[m
+Author: sherm <shermawns@gmail.com>
+Date:   Wed Nov 20 10:41:25 2024 -0300
+
+    DTO: Response and Requests
+
+[33mcommit abfb32f875663fc1ad78d90a8fc3c2cd77d2a454[m
+Author: sherm <shermawns@gmail.com>
+Date:   Tue Nov 19 11:17:16 2024 -0300
+
+    Entitys: Ticket/TicketPK/TicketRepository and RolePriority
+
+[33mcommit cc1a1d968e8432792b7c9a6bc29ecc8e82d683ab[m
+Author: sherm <shermawns@gmail.com>
+Date:   Tue Nov 19 11:16:41 2024 -0300
+
+    Entitys: Provider/ProviderRepository
+
+[33mcommit 3c4803d70b36fc455fa00dc8adc83fd9bdebad1a[m
+Author: sherm <shermawns@gmail.com>
+Date:   Tue Nov 19 11:16:06 2024 -0300
+
+    Entitys: Trilogger/TriloggerRepository
+
+[33mcommit 078402f9a1ed41203c3d900d769fd1d014b33608[m
+Author: sherm <shermawns@gmail.com>
+Date:   Tue Nov 19 11:15:10 2024 -0300
+
+    Entitys: Store/StoreRepository

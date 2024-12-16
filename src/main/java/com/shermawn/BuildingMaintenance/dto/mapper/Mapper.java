@@ -1,9 +1,13 @@
 package com.shermawn.BuildingMaintenance.dto.mapper;
+import com.shermawn.BuildingMaintenance.dto.TicketTrilogger.TicketTriRequest;
+import com.shermawn.BuildingMaintenance.dto.provider.RequestProviderDTO;
+import com.shermawn.BuildingMaintenance.dto.provider.ResponseProviderDTO;
 import com.shermawn.BuildingMaintenance.dto.stores.RequestStoreDTO;
 import com.shermawn.BuildingMaintenance.dto.stores.ResponseStoreDTO;
 import com.shermawn.BuildingMaintenance.dto.tickets.ResponseTicketDTO;
 import com.shermawn.BuildingMaintenance.dto.triloggers.RequestTriloggerDTO;
 import com.shermawn.BuildingMaintenance.dto.triloggers.ResponseTriloggerDTO;
+import com.shermawn.BuildingMaintenance.models.Provider;
 import com.shermawn.BuildingMaintenance.models.Store;
 import com.shermawn.BuildingMaintenance.models.Ticket;
 import com.shermawn.BuildingMaintenance.models.Trilogger;
@@ -18,7 +22,7 @@ public class Mapper {
         for (Ticket t : ticket){
             ResponseTicketDTO responseTicketDTO = new ResponseTicketDTO(t.getTicketId(),t.getStore(),
                     t.getTrilogger(), t.getProvider(), t.getTitle(),
-                    t.getDescription(), t.getPriority(), t.getCreatedDate(), t.getDeadline());
+                    t.getDescription(), t.getService() ,t.getStatus(),t.getPriority(),t.getCreatedDate(), t.getDeadline());
 
             dtos.add(responseTicketDTO);
         }
@@ -30,6 +34,7 @@ public class Mapper {
         responseTicketDTO.setStore(ticket.getStore());
         responseTicketDTO.setTitle(ticket.getTitle());
         responseTicketDTO.setDescription(ticket.getDescription());
+        responseTicketDTO.setCreatedDate(ticket.getCreatedDate());
 
         return responseTicketDTO;
     }
@@ -40,6 +45,7 @@ public class Mapper {
         store.setUsername(requestStoreDTO.getUsername());
         store.setPassword(requestStoreDTO.getPassword());
         store.setCnpj(requestStoreDTO.getCnpj());
+        store.setCreatedDate(requestStoreDTO.getCreatedDate());
 
         return store;
     }
@@ -59,6 +65,7 @@ public class Mapper {
 
         responseStoreDTO.setUsername(s.getUsername());
         responseStoreDTO.setCnpj(s.getCnpj());
+        responseStoreDTO.setCreatedDate(s.getCreatedDate());
 
         return responseStoreDTO;
     }
@@ -76,7 +83,39 @@ public class Mapper {
 
         responseTriloggerDTO.setUsername(requestTriloggerDTO.getUsername());
 
+        responseTriloggerDTO.setCreatedDate(requestTriloggerDTO.getCreatedDate());
+
         return responseTriloggerDTO;
     }
+
+    public static List<ResponseProviderDTO> listResponseProviderDTO(List<Provider> providers){
+        List<ResponseProviderDTO> list = new ArrayList<>();
+
+        for (Provider x : providers){
+            ResponseProviderDTO responseProviderDTO = new ResponseProviderDTO(x.getUsername(), x.getCnpj(), x.getCreatedDate());
+            list.add(responseProviderDTO);
+        }
+        return list;
+    }
+
+    public static Provider toRequestProvider(RequestProviderDTO requestProviderDTO){
+        Provider provider = new Provider();
+        provider.setUsername(requestProviderDTO.getUsername());
+        provider.setPassword(requestProviderDTO.getPassword());
+        provider.setCnpj(requestProviderDTO.getCnpj());
+
+        return provider;
+    }
+
+    public static ResponseProviderDTO toResposeProvider(Provider s){
+        ResponseProviderDTO responseProviderDTO = new ResponseProviderDTO();
+
+        responseProviderDTO.setUsername(s.getUsername());
+        responseProviderDTO.setCnpj(s.getCnpj());
+        responseProviderDTO.setCreatedDate(s.getCreatedDate());
+
+        return responseProviderDTO;
+    }
+
 }
 

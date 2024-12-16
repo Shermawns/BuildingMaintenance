@@ -1,15 +1,20 @@
 package com.shermawn.BuildingMaintenance.dto.provider;
-
-import com.shermawn.BuildingMaintenance.models.Provider;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
 public class ResponseProviderDTO {
     private String username;
     private String cnpj;
+    private LocalDate createdDate;
 
-    public ResponseProviderDTO(Provider provider) {
-        username = provider.getUsername();
-        cnpj = provider.getCnpj();
+    public ResponseProviderDTO(String username, String cnpj, LocalDate createdDate) {
+        this.username = username;
+        this.cnpj = cnpj;
+        this.createdDate = createdDate;
     }
+
 }

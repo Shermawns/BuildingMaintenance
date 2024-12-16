@@ -6,6 +6,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.time.LocalDate;
+
 @Data
 public class RequestProviderDTO {
 
@@ -19,5 +21,7 @@ public class RequestProviderDTO {
     @NotNull
     @Size(min = 14)
     private String cnpj;
+
+    private LocalDate createdDate;
 
 }

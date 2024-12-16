@@ -5,6 +5,7 @@ import com.shermawn.BuildingMaintenance.dto.triloggers.ResponseTriloggerDTO;
 import com.shermawn.BuildingMaintenance.models.Trilogger;
 import com.shermawn.BuildingMaintenance.services.TriloggerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,5 +35,10 @@ public class TriloggerController {
     public ResponseEntity<List<Trilogger>> findAll(){
         List<Trilogger> users = triloggerService.findAll();
         return ResponseEntity.ok().body(users);
+    }
+
+    @DeleteMapping
+    public void deleteById(@PathVariable Long id){
+        triloggerService.delete(id);
     }
 }

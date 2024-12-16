@@ -3,7 +3,9 @@ package com.shermawn.BuildingMaintenance.controller;
 import com.shermawn.BuildingMaintenance.dto.mapper.Mapper;
 import com.shermawn.BuildingMaintenance.dto.provider.RequestProviderDTO;
 import com.shermawn.BuildingMaintenance.dto.provider.ResponseProviderDTO;
+import com.shermawn.BuildingMaintenance.dto.stores.ResponseStoreDTO;
 import com.shermawn.BuildingMaintenance.models.Provider;
+import com.shermawn.BuildingMaintenance.models.Store;
 import com.shermawn.BuildingMaintenance.services.ProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/api/v1/providers")
@@ -32,10 +35,10 @@ public class ProviderController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseProviderDTO);
 
     }
-
     @GetMapping
     public ResponseEntity<List<ResponseProviderDTO>> findAll(){
         List<Provider> result = providerService.findAll();
         return ResponseEntity.ok().body(Mapper.listResponseProviderDTO(result));
     }
+
 }
