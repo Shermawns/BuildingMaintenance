@@ -1,5 +1,4 @@
 package com.shermawn.BuildingMaintenance.dto.mapper;
-import com.shermawn.BuildingMaintenance.dto.TicketTrilogger.TicketTriRequest;
 import com.shermawn.BuildingMaintenance.dto.provider.RequestProviderDTO;
 import com.shermawn.BuildingMaintenance.dto.provider.ResponseProviderDTO;
 import com.shermawn.BuildingMaintenance.dto.stores.RequestStoreDTO;

@@ -1,5 +1,6 @@
 package com.shermawn.BuildingMaintenance.services;
 
+import com.shermawn.BuildingMaintenance.dto.provider.RequestProviderDTO;
 import com.shermawn.BuildingMaintenance.models.Provider;
 import com.shermawn.BuildingMaintenance.repositories.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,27 @@ public class ProviderService {
 
     public List<Provider> findAll(){
         return providerRepository.findAll();
+    }
+
+    public void delete(Long id){
+        providerRepository.deleteById(id);
+    }
+
+    public Provider updateProvider(Long id, Provider provider) {
+        Provider existingProvider = providerRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Provider com o ID " + id + " não foi encontrado."));
+
+        if (provider.getUsername() != null) {
+            existingProvider.setUsername(provider.getUsername());
+        }
+        if (provider.getPassword() != null) {
+            existingProvider.setPassword(provider.getPassword());
+        }
+        if (provider.getCnpj() != null) {
+            existingProvider.setCnpj(provider.getCnpj());
+        }
+
+        return providerRepository.save(existingProvider);
     }
 
 }

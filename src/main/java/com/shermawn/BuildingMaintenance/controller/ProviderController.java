@@ -41,4 +41,16 @@ public class ProviderController {
         return ResponseEntity.ok().body(Mapper.listResponseProviderDTO(result));
     }
 
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ResponseProviderDTO> update(@PathVariable Long id, @RequestBody Provider provider){
+        Provider result = providerService.updateProvider(id, provider);
+        return ResponseEntity.status(HttpStatus.CREATED).body(Mapper.toResposeProvider(result));
+    }
+
+    @DeleteMapping(value = "delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+        providerService.delete(id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("User "+id+ " deleted successfully");
+    }
+
 }
